@@ -62,3 +62,52 @@
     </div>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor Example</title>
+    <link rel="stylesheet" type="text/css" href="custom-cursor.css">
+    <style>
+        /* Your inline styles or additional styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            cursor: url('/3dwarrow.png'), auto;
+        }
+        .buffering {
+            cursor: url('/hourgla3.ani'), auto;
+        }
+        .hover {
+            cursor: url('/harrow.png'), auto;
+        }
+    </style>
+    <script>
+        function handleHover() {
+            document.body.classList.add('hover');
+        }
+
+        function handleLeave() {
+            document.body.classList.remove('hover');
+        }
+
+        function simulateBuffering() {
+            document.body.classList.add('buffering');
+            setTimeout(function() {
+                document.body.classList.remove('buffering');
+            }, 3000); // Remove buffering class after 3 seconds (adjust as needed)
+        }
+    </script>
+</head>
+<body>
+    <h1>Custom Cursor Example</h1>
+    <p>Hover over the text below to change the cursor:</p>
+    <div onmouseover="handleHover()" onmouseleave="handleLeave()">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <button onclick="simulateBuffering()">Simulate Buffering</button>
+</body>
+</html>
