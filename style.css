@@ -40,4 +40,7 @@ a:hover {
     pointer-events: none; /* So that mouse events can pass through the image */
     z-index: 999; /* Ensure the image stays on top */
     transform: translate(-50%, -50%); /* Center the image on the cursor */
+    top: -20px; /* Offset the image 20 pixels above the cursor */
+}
+
 }
