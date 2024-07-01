@@ -24,7 +24,7 @@
         a {
             color: cyan;
             text-decoration: none;
-            cursor: url('/harrow.png'), pointer; /* Custom cursor for links */
+            cursor: url('/harrow.png'), auto; /* Custom cursor for links */
         }
         a:hover {
             text-decoration: underline;
@@ -37,6 +37,38 @@
             height: 315px;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a');
+            const inputs = document.querySelectorAll('input, textarea');
+
+            links.forEach(link => {
+                link.addEventListener('mouseover', () => {
+                    document.body.style.cursor = 'url("/harrow.png"), auto';
+                });
+                link.addEventListener('mouseout', () => {
+                    document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+                });
+            });
+
+            inputs.forEach(input => {
+                input.addEventListener('mouseover', () => {
+                    document.body.style.cursor = 'url("/beam351.png"), auto';
+                });
+                input.addEventListener('mouseout', () => {
+                    document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+                });
+            });
+
+            document.addEventListener('selectstart', () => {
+                document.body.style.cursor = 'url("/beam351.png"), auto';
+            });
+
+            document.addEventListener('mouseup', () => {
+                document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
