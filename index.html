@@ -25,7 +25,6 @@
             color: cyan;
             text-decoration: none;
             position: relative; /* Ensure cursor works properly within links */
-            cursor: url('/harrow.cur'), auto; /* Custom cursor for links */
         }
         a:hover {
             text-decoration: underline;
@@ -39,7 +38,9 @@
         }
         /* Custom Cursor CSS */
         .custom-cursor {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 32px; /* Adjust width and height to match your cursor image size */
             height: 32px;
             background-image: url('/harrow.cur'); /* Default cursor image */
@@ -82,23 +83,29 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('a');
             const customCursor = document.querySelector('.custom-cursor');
-
-            // Handle mouseover and mouseout events for links
-            links.forEach(link => {
-                link.addEventListener('mouseover', () => {
-                    customCursor.style.display = 'block'; // Show custom cursor
-                });
-                link.addEventListener('mouseout', () => {
-                    customCursor.style.display = 'none'; // Hide custom cursor
-                });
-            });
 
             // Update custom cursor position based on mouse movement
             document.addEventListener('mousemove', function(e) {
-                customCursor.style.left = e.pageX + 'px';
-                customCursor.style.top = e.pageY + 'px';
+                customCursor.style.display = 'block'; // Show custom cursor
+                customCursor.style.left = e.clientX + 'px';
+                customCursor.style.top = e.clientY + 'px';
+            });
+
+            // Hide custom cursor when leaving the document area
+            document.addEventListener('mouseleave', function() {
+                customCursor.style.display = 'none';
+            });
+
+            // Handle mouseover and mouseout events for links to change cursor image
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('mouseover', () => {
+                    customCursor.style.backgroundImage = 'url("/harrow.cur")'; // Change cursor image for links
+                });
+                link.addEventListener('mouseout', () => {
+                    customCursor.style.backgroundImage = 'url("/harrow.cur")'; // Change back to default cursor image
+                });
             });
         });
     </script>
