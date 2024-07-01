@@ -2,9 +2,9 @@
     position: fixed;
     pointer-events: none;
     z-index: 999;
-    top: -50px; /* Offset the image 50 pixels above the cursor */
-    left: -50px; /* Offset the image 50 pixels to the left of the cursor */
-    transform: translate(-50%, -50%); /* Center the image on the cursor */
+    top: calc(-100% - 30px); /* Offset the image 30 pixels above the cursor */
+    left: calc(-100% - 30px); /* Offset the image 30 pixels to the left of the cursor */
+    /* Additional styles for the image size and appearance */
     width: 60px;
     height: 60px;
 }
