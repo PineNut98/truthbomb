@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 2px solid red;
+    position: relative; /* Ensure container is positioned for absolute children */
+}
+
+h1, h2 {
+    color: yellow;
+}
+
+a {
+    color: cyan;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.video {
+    margin: 20px 0;
+}
+
+.video iframe {
+    width: 100%;
+    height: 315px;
+}
+
+#follower {
+    position: absolute;
+    pointer-events: none; /* So that mouse events can pass through the image */
+    z-index: 999; /* Ensure the image stays on top */
+}
