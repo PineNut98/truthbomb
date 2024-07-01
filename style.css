@@ -2,8 +2,8 @@
     position: fixed;
     pointer-events: none;
     z-index: 999;
-    top: -30px; /* Offset the image 30 pixels above the cursor */
-    left: -30px; /* Offset the image 30 pixels to the left of the cursor */
+    top: -50px; /* Offset the image 30 pixels above the cursor */
+    left: -50px; /* Offset the image 30 pixels to the left of the cursor */
     transform: translate(-50%, -50%); /* Center the image on the cursor */
     /* Additional styles for the image size and appearance */
     width: 60px;
