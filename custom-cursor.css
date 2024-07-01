@@ -1,0 +1,19 @@
+/* Default cursor */
+body {
+    cursor: url('/3dwarrow.png'), auto;
+}
+
+/* Text selection cursor */
+::selection {
+    cursor: url('/beam351.png'), auto;
+}
+
+/* Buffering animation cursor */
+.buffering {
+    cursor: url('/hourgla3.ani'), auto;
+}
+
+/* Hover cursor */
+.hover {
+    cursor: url('/harrow.png'), auto;
+}
