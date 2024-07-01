@@ -1,19 +1,47 @@
-/* Default cursor */
 body {
-    cursor: url('/3dwarrow.png'), auto;
+    background-color: black;
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    cursor: url('/3dwarrow.png'), auto; /* Default cursor */
 }
 
-/* Text selection cursor */
-::selection {
-    cursor: url('/beam351.png'), auto;
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 2px solid red;
 }
 
-/* Buffering animation cursor */
-.buffering {
-    cursor: url('/hourgla3.ani'), auto;
+h1, h2 {
+    color: yellow;
 }
 
-/* Hover cursor */
-.hover {
-    cursor: url('/harrow.png'), auto;
+a {
+    color: cyan;
+    text-decoration: none;
+    /* Remove cursor definition here, handle it through JavaScript */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.video {
+    margin: 20px 0;
+}
+
+.video iframe {
+    width: 100%;
+    height: 315px;
+}
+
+.custom-cursor {
+    position: absolute;
+    width: 32px; /* Adjust width and height to match your cursor image size */
+    height: 32px;
+    background-image: url('/harrow.png'); /* Default cursor image */
+    background-size: cover;
+    pointer-events: none; /* Ensure cursor doesn't interfere with click events */
+    z-index: 9999; /* Ensure cursor appears on top of other content */
 }
