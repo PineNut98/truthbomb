@@ -1,3 +1,13 @@
+<!-- In your existing HTML file (e.g., index.html) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Webpage Title</title>
+    <link rel="stylesheet" type="text/css" href="custom-cursor.css">
+    <!-- Link to your custom-cursor.css file -->
+</head>
+<body>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,28 +73,17 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Cursor Example</title>
-    <link rel="stylesheet" type="text/css" href="custom-cursor.css">
-    <style>
-        /* Your inline styles or additional styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            cursor: url('/3dwarrow.png'), auto;
-        }
-        .buffering {
-            cursor: url('/hourgla3.ani'), auto;
-        }
-        .hover {
-            cursor: url('/harrow.png'), auto;
-        }
-    </style>
+    <!-- Your existing webpage content here -->
+    <h1>Welcome to My Website</h1>
+    <p>This is your existing content.</p>
+
+    <!-- Additional HTML and JavaScript for your interactions -->
+    <div onmouseover="handleHover()" onmouseleave="handleLeave()">
+        <p>Hover over this area to change the cursor.</p>
+    </div>
+    <button onclick="simulateBuffering()">Simulate Buffering</button>
+
+    <!-- JavaScript functions -->
     <script>
         function handleHover() {
             document.body.classList.add('hover');
@@ -101,13 +100,6 @@
             }, 3000); // Remove buffering class after 3 seconds (adjust as needed)
         }
     </script>
-</head>
-<body>
-    <h1>Custom Cursor Example</h1>
-    <p>Hover over the text below to change the cursor:</p>
-    <div onmouseover="handleHover()" onmouseleave="handleLeave()">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <button onclick="simulateBuffering()">Simulate Buffering</button>
 </body>
 </html>
+
