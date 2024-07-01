@@ -37,6 +37,35 @@
             height: 315px;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reset cursor on mouse leave
+            document.addEventListener('mouseout', function(event) {
+                document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+            });
+
+            // Change cursor on text selection
+            document.addEventListener('selectstart', function(event) {
+                document.body.style.cursor = 'url("/beam351.png"), auto';
+            });
+
+            // Reset cursor on deselect
+            document.addEventListener('mouseup', function(event) {
+                document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+            });
+
+            // Simulate buffering cursor
+            function simulateBuffering() {
+                document.body.style.cursor = 'url("/hourgla3.ani"), auto';
+                setTimeout(function() {
+                    document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+                }, 3000); // Remove buffering cursor after 3 seconds (adjust as needed)
+            }
+
+            // Example: Simulate buffering on button click
+            document.getElementById('bufferingBtn').addEventListener('click', simulateBuffering);
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -63,6 +92,8 @@
 
         <h2>Contact Jonah Grey</h2>
         <p>Have a conspiracy you want to discuss? <a href="mailto:jonah.grey@truthbomb.com">Email Jonah</a></p>
+
+        <button id="bufferingBtn">Simulate Buffering</button>
     </div>
 </body>
 </html>
