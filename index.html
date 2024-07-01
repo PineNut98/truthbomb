@@ -24,38 +24,51 @@
         a {
             color: cyan;
             text-decoration: none;
+            cursor: url('/harrow.png'), auto; /* Hover cursor for links */
         }
         a:hover {
             text-decoration: underline;
-            cursor: url('/harrow.png'), auto; /* Hover cursor for links */
         }
-        input, textarea {
-            cursor: url('/beam351.png'), auto; /* Cursor for text inputs and areas */
+        .video {
+            margin: 20px 0;
         }
-        ::selection {
-            cursor: url('/beam351.png'), auto; /* Cursor for text selection */
-        }
-        .buffering {
-            cursor: url('/hourgla3.ani'), auto; /* Cursor for buffering */
+        .video iframe {
+            width: 100%;
+            height: 315px;
         }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Change cursor on text selection
-            document.addEventListener('selectstart', function(event) {
-                document.body.classList.add('selecting');
+            // Change cursor on hover over inputs and text areas
+            document.addEventListener('mouseover', function(event) {
+                if (event.target.tagName === 'A') {
+                    document.body.style.cursor = 'url("/harrow.png"), auto';
+                } else if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    document.body.style.cursor = 'url("/beam351.png"), auto';
+                }
             });
 
+            // Reset cursor on mouse leave
+            document.addEventListener('mouseout', function(event) {
+                document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+            });
+
+            // Change cursor on text selection
+            document.addEventListener('selectstart', function(event) {
+                document.body.style.cursor = 'url("/beam351.png"), auto';
+            });
+
+            // Reset cursor on deselect
             document.addEventListener('mouseup', function(event) {
-                document.body.classList.remove('selecting');
+                document.body.style.cursor = 'url("/3dwarrow.png"), auto';
             });
 
             // Simulate buffering cursor
             function simulateBuffering() {
-                document.body.classList.add('buffering');
+                document.body.style.cursor = 'url("/hourgla3.ani"), auto';
                 setTimeout(function() {
-                    document.body.classList.remove('buffering');
-                }, 3000); // Remove buffering class after 3 seconds (adjust as needed)
+                    document.body.style.cursor = 'url("/3dwarrow.png"), auto';
+                }, 3000); // Remove buffering cursor after 3 seconds (adjust as needed)
             }
 
             // Example: Simulate buffering on button click
@@ -92,5 +105,8 @@
         <!-- Example button for buffering simulation -->
         <button id="bufferingBtn">Simulate Buffering</button>
     </div>
+</body>
+</html>
+
 </body>
 </html>
