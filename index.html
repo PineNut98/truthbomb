@@ -1,4 +1,50 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90s Style Website</title>
+    <link rel="stylesheet" type="text/css" href="custom-cursor.css">
+    <!-- Link to your custom-cursor.css file -->
+    <style>
+        /* Optional: Additional styles for your webpage */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Set default cursor */
+        body {
+            cursor: url('/3dwarrow.png'), auto;
+        }
+    </style>
+    <script>
+        // JavaScript functions for dynamic cursor changes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('mouseover', function(event) {
+                if (event.target.tagName === 'A') {
+                    event.target.style.cursor = 'url("/harrow.png"), auto';
+                } else if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    event.target.style.cursor = 'url("/beam351.png"), auto';
+                }
+            });
+            document.addEventListener('mouseout', function(event) {
+                if (event.target.tagName === 'A' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    event.target.style.cursor = 'auto';
+                }
+            });
+            document.addEventListener('selectstart', function(event) {
+                event.target.style.cursor = 'url("/beam351.png"), auto';
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Truthbomb - Jonah Grey</title>
@@ -62,3 +108,4 @@
     </div>
 </body>
 </html>
+
