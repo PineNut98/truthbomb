@@ -14,6 +14,7 @@
             margin: 0 auto;
             padding: 10px;
             border: 2px solid red;
+            position: relative; /* Ensure container is positioned for absolute children */
         }
         h1, h2 {
             color: yellow;
@@ -31,6 +32,11 @@
         .video iframe {
             width: 100%;
             height: 315px;
+        }
+        #follower {
+            position: absolute;
+            pointer-events: none; /* So that mouse events can pass through the image */
+            z-index: 999; /* Ensure the image stays on top */
         }
     </style>
 </head>
@@ -59,6 +65,20 @@
 
         <h2>Contact Jonah Grey</h2>
         <p>Have a conspiracy you want to discuss? <a href="mailto:jonah.grey@truthbomb.com">Email Jonah</a></p>
+    </div>
+
+    <!-- Script to handle the image following the mouse cursor -->
+    <script>
+        document.addEventListener("mousemove", function(event) {
+            var follower = document.getElementById("follower");
+            follower.style.left = (event.pageX + 10) + "px"; // Offset to center the image horizontally
+            follower.style.top = (event.pageY + 10) + "px"; // Offset to center the image vertically
+        });
+    </script>
+
+    <!-- Image to follow the cursor -->
+    <div id="follower">
+        <img src="3dwarro.png" alt="3dwarro" width="50" height="50">
     </div>
 </body>
 </html>
