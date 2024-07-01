@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Truthbomb - Jonah Grey</title>
     <style>
         body {
@@ -10,7 +8,6 @@
             color: red;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
-            cursor: url('/3dwarrow.cur'), auto; /* Default cursor */
         }
         .container {
             width: 80%;
@@ -24,7 +21,6 @@
         a {
             color: cyan;
             text-decoration: none;
-            position: relative; /* Ensure cursor works properly within links */
         }
         a:hover {
             text-decoration: underline;
@@ -35,19 +31,6 @@
         .video iframe {
             width: 100%;
             height: 315px;
-        }
-        /* Custom Cursor CSS */
-        .custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 32px; /* Adjust width and height to match your cursor image size */
-            height: 32px;
-            background-image: url('/harrow.cur'); /* Default cursor image */
-            background-size: cover;
-            pointer-events: none; /* Ensure cursor doesn't interfere with click events */
-            z-index: 9999; /* Ensure cursor appears on top of other content */
-            display: none; /* Initially hide the custom cursor */
         }
     </style>
 </head>
@@ -77,37 +60,5 @@
         <h2>Contact Jonah Grey</h2>
         <p>Have a conspiracy you want to discuss? <a href="mailto:jonah.grey@truthbomb.com">Email Jonah</a></p>
     </div>
-
-    <!-- Custom Cursor Element -->
-    <div class="custom-cursor"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const customCursor = document.querySelector('.custom-cursor');
-
-            // Update custom cursor position based on mouse movement
-            document.addEventListener('mousemove', function(e) {
-                customCursor.style.display = 'block'; // Show custom cursor
-                customCursor.style.left = e.clientX + 'px';
-                customCursor.style.top = e.clientY + 'px';
-            });
-
-            // Hide custom cursor when leaving the document area
-            document.addEventListener('mouseleave', function() {
-                customCursor.style.display = 'none';
-            });
-
-            // Handle mouseover and mouseout events for links to change cursor image
-            const links = document.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('mouseover', () => {
-                    customCursor.style.backgroundImage = 'url("/harrow.cur")'; // Change cursor image for links
-                });
-                link.addEventListener('mouseout', () => {
-                    customCursor.style.backgroundImage = 'url("/harrow.cur")'; // Change back to default cursor image
-                });
-            });
-        });
-    </script>
 </body>
 </html>
