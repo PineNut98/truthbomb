@@ -10,6 +10,7 @@
             color: red;
             font-family: 'Courier New', Courier, monospace;
             text-align: center;
+            cursor: none; /* Hide default cursor */
         }
         .container {
             width: 80%;
@@ -81,7 +82,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const links = document.querySelectorAll('a');
-            const inputs = document.querySelectorAll('input, textarea');
             const customCursor = document.querySelector('.custom-cursor');
 
             // Handle mouseover and mouseout events for links
@@ -94,25 +94,13 @@
                 });
             });
 
-            // Handle mouseover and mouseout events for inputs
-            inputs.forEach(input => {
-                input.addEventListener('mouseover', () => {
-                    customCursor.style.display = 'block'; // Show custom cursor
-                });
-                input.addEventListener('mouseout', () => {
-                    customCursor.style.display = 'none'; // Hide custom cursor
-                });
-            });
-
             // Update custom cursor position based on mouse movement
             document.addEventListener('mousemove', function(e) {
                 customCursor.style.left = e.pageX + 'px';
                 customCursor.style.top = e.pageY + 'px';
             });
-
-            // Prevent default browser cursor when over elements
-            document.body.style.cursor = 'none';
         });
     </script>
 </body>
 </html>
+
